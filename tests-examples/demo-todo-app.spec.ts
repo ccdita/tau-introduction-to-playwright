@@ -11,6 +11,8 @@ const TODO_ITEMS = [
 ];
 
 test.describe('New Todo', () => {
+  // @smoke is a tag that can be used to group tests together for execution
+  // See package.json to see how tags can be used to run groups of tests
   test('@smoke - should allow me to add todo items ', async ({ page }) => {
     // create a new todo locator
     const newTodo = page.getByPlaceholder('What needs to be done?');
