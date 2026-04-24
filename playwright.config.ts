@@ -99,6 +99,9 @@ export default defineConfig({
       use: { ...devices['Desktop Safari'] },
     },
 
+    // Make sure to add an instance of the project with the same name for each and every browser!
+    // When the all-browsers-and-tests project is called in package.json or the playwright command,
+    // all instances with the name all-browsers-and-tests will be called
     {
       name: 'all-browsers-and-tests',
       use: { 
