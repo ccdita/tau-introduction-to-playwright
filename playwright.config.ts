@@ -1,29 +1,41 @@
+/**
+ * Playwright Test Configuration for defining test settings and projects.
+ * This configuration file sets up the testing environment, including test directories, parallel execution, retries, reporting, and browser projects.
+ * It also includes environment variable management using dotenv for dynamic base URLs.
+ */
+
+// defineConfig is an object with the configurations
+// devices are the devices that the tests are run on (browsers, mobile devices)
 import { defineConfig, devices } from '@playwright/test';
 import baseEnvUrl from './utils/environmentBaseUrl';
+import * as dotenv from 'dotenv';
 
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
  */
-require('dotenv').config();
+dotenv.config();
 
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-  // testDir: './tests',
+  // testDir: './tests', // Defines where to put tests
 
-  /* Run tests in files in parallel */
+  /* Run tests in files in parallel for speed */
   fullyParallel: true,
 
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
 
   /* Retry on CI only */
+  // If CI is set = tests are run on a Continuous Integration environment (e.g., GitHub Actions, GitLab CI, Jenkins)
+  // If CI is not set = tests are run locally or another non-CI environment
   // retries: process.env.CI ? 2 : 0,
   retries: 2,
 
   /* Opt out of parallel tests on CI. */
+  // If CI is not set = undefined means number of workers defaults to number of cores in your system
   workers: process.env.CI ? 1 : undefined,
 
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
@@ -51,7 +63,7 @@ export default defineConfig({
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
     // headless: false,
-    // ignoreHTTPSErrors: true,
+    // ignoreHTTPSErrors: true, // If application does not have a valid certificate
     // viewport: { width: 1280, height: 720 },
     // video: 'on-first-retry',
   },
@@ -115,7 +127,7 @@ export default defineConfig({
     {
       name: 'local',
       use: { 
-        baseURL: baseEnvUrl.local.home,
+        baseURL: baseEnvUrl.local.home, // Ctrl + left click to access file with URLs for each of the different environments
       },
     },
 
@@ -124,6 +136,7 @@ export default defineConfig({
       name: 'ci',
       use: { 
          baseURL: process.env.CI
+          // Build a URL based on environment variables
           ? baseEnvUrl.ci.prefix + process.env.GITHUB_REF_NAME + baseEnvUrl.ci.suffix //https://dev-myapp-chapter-2.mydomain.com
           : baseEnvUrl.staging.home,
       },
