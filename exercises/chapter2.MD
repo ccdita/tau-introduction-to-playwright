@@ -1,9 +1,5 @@
 # Introduction to Playwright
 
-Hi 👋🏽!
-
-Welcome to the course "Introduction to Playwright" by [Renata Andrade](https://testingwithrenata.com/) for the [Test Automation University](https://testautomationu.applitools.com/).
-
 ## Chapter 2 - Exercises
 
 1. Change the number of workers on [playwright.config.ts](/playwright.config.ts) and see how it affects the tests run time. Use the command `npm run test:e2e:all` to run all the existing tests. Note that the number of workers will change too on the terminal. Suggestions: 1, 10, 100. What happens when you change it to 100?
@@ -21,10 +17,3 @@ Welcome to the course "Introduction to Playwright" by [Renata Andrade](https://t
 1. Open the [demo-todo-app.spec.ts](/tests-examples/demo-todo-app.spec.ts) and add a .only to one of the describes, run the tests. Use the command `npm run test:e2e:all`. Did it work?
 
 1. Still in the [demo-todo-app.spec.ts](/tests-examples/demo-todo-app.spec.ts) revert the .only and add a new tag to some of the tests/describes. Update the script `test:e2e:smoke` in [package.json](/package.json) to use the new tag. Did it work?
-
-
-💡 Share on LinkedIn something interesting you've learned! Don't forget to tag me [Renata Andrade](https://www.linkedin.com/in/raptatinha/).
-
-If you have questions, feel free to post them on [github](https://github.com/raptatinha/tau-introduction-to-playwright/issues).
-
-Happy Testing 🎭!
