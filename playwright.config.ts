@@ -37,6 +37,7 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   // If CI is not set = undefined means number of workers defaults to number of cores in your system
   workers: process.env.CI ? 1 : undefined,
+  // workers: 100,
 
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'html',
@@ -65,7 +66,7 @@ export default defineConfig({
     // headless: false,
     // ignoreHTTPSErrors: true, // If application does not have a valid certificate
     // viewport: { width: 1280, height: 720 },
-    // video: 'on-first-retry',
+    // video: 'on',
   },
     // timeout: 30000, //https://playwright.dev/docs/test-timeouts
     // expect: {
@@ -155,7 +156,7 @@ export default defineConfig({
     //   use: { ...devices['Pixel 5'] },
     // },
     // {
-    //   name: 'Mobile Safari',
+    //   name: 'mobile-safari',
     //   use: { ...devices['iPhone 12'] },
     // },
 

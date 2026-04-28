@@ -10,7 +10,7 @@ const TODO_ITEMS = [
   'book a doctors appointment'
 ];
 
-test.describe('New Todo', () => {
+test.describe('@tag - New Todo', () => {
   // @smoke is a tag that can be used to group tests together for execution
   // See package.json to see how tags can be used to run groups of tests
   test('@smoke - should allow me to add todo items ', async ({ page }) => {
@@ -39,7 +39,7 @@ test.describe('New Todo', () => {
     await checkNumberOfTodosInLocalStorage(page, 2);
   });
 
-  test('should clear text input field when an item is added', async ({ page }) => {
+  test('@tag - should clear text input field when an item is added', async ({ page }) => {
     // create a new todo locator
     const newTodo = page.getByPlaceholder('What needs to be done?');
 
