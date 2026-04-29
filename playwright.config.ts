@@ -1,5 +1,6 @@
 import { defineConfig, devices } from '@playwright/test';
 import baseEnvUrl from './utils/environmentBaseUrl';
+import * as dotenv from 'dotenv';
 
 /**
  * Read environment variables from file.
