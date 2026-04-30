@@ -1,6 +1,6 @@
 import { test, type Page } from '@playwright/test';
 import { HomePage } from '../pages/home-page';
-import { TopMenuPage } from '../pages/top-menu-page';
+import { TopMenuPageChristal } from '../pages/top-menu-page-christal';
 
 /**
  * Final version of example2.spec.ts which combines the HomePage and TopMenuPage POMs
@@ -9,7 +9,7 @@ import { TopMenuPage } from '../pages/top-menu-page';
 
 const URL = 'https://playwright.dev/';
 let homePage: HomePage;
-let topMenuPage: TopMenuPage;
+let topMenuPage: TopMenuPageChristal;
 const pageUrl = /.*intro/;
 
 /**
@@ -26,7 +26,7 @@ test.beforeEach(async ({page}) => {
  */
 async function clickGetStarted(page: Page) {
     await homePage.clickGetStarted();
-    topMenuPage = new TopMenuPage(page);
+    topMenuPage = new TopMenuPageChristal(page);
 }
 
 test.describe('Playwright website', () => {
