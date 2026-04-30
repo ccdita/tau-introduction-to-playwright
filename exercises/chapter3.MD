@@ -9,7 +9,7 @@ I learned the following:
 - Declare all relevant elements and URLs in the variables section, then assign them uisng locators in the constructor.
 - Avoid locating elements in the methods. The methods should take the elements (which should have been located and assigned in the constructor) and apply actions and assertions to them.
 
-1. Describe and implement a scenario for the search using page object models. Make sure you fill the search with a term and use the keyboard arrows to select one of the results. 
+**2. Describe and implement a scenario for the search using page object models. Make sure you fill the search with a term and use the keyboard arrows to select one of the results.**
 
 1. Describe and implement a scenario where you need to use the beforeAll. What did you use it for?
 
