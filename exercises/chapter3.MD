@@ -12,12 +12,17 @@ I learned the following:
 **2. Describe and implement a scenario for the search using page object models. Make sure you fill the search with a term and use the keyboard arrows to select one of the results.**
 
 **3. Describe and implement a scenario where you need to use the beforeAll. What did you use it for?**
+
 I used beforeAll for logging into the website (practicetestautomation.com) so that I could test the different navigation links while logged in.
 
 **4. Describe and implement a scenario where you need to use the afterAll. What did you use it for?**
+
 I used afterAll for closing the browser after running all tests on practicetestautomation.com. The website has no Log Out button, but if there had been one, I would have used afterAll to log out of my account after running the tests.
 
 **5. Describe and implement a scenario where you need to use the afterEach. What did you use it for?**
+
 I used afterEach to log the output of each test in the console.
 
-1. Explore few of the methods of the testInfo. Which one did you find more interesting?
+**6. Explore few of the methods of the testInfo. Which one did you find more interesting?**
+
+I found `testInfo.slow()` very interesting because it gives the test triple the default timeout. This method could be useful for preventing premature timeouts for resource-intensive or slow tests.
