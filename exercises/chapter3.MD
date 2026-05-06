@@ -11,9 +11,11 @@ I learned the following:
 
 **2. Describe and implement a scenario for the search using page object models. Make sure you fill the search with a term and use the keyboard arrows to select one of the results.**
 
-1. Describe and implement a scenario where you need to use the beforeAll. What did you use it for?
+**3. Describe and implement a scenario where you need to use the beforeAll. What did you use it for?**
+I used beforeAll for logging into the website (practicetestautomation.com) so that I could test the different navigation links while logged in.
 
-1. Describe and implement a scenario where you need to use the afterAll. What did you use it for?
+**4. Describe and implement a scenario where you need to use the afterAll. What did you use it for?**
+I used afterAll for closing the browser after running all tests on practicetestautomation.com. The website has no Log Out button, but if there had been one, I would have used afterAll to log out of my account after running the tests.
 
 1. Describe and implement a scenario where you need to use the afterEach. What did you use it for?
 
