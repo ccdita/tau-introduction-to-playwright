@@ -32,6 +32,14 @@ test.afterAll(async () => {
     await page.close();
 });
 
+/**
+ * Logs the result of each test
+ */
+test.afterEach( async ({}, testInfo) => {
+    // Log each test result within this file
+    console.log(`Finished "${testInfo.title}" with status "${testInfo.status}"`);
+});
+
 test.describe('practicetestautomation.com navigation', () => {
     
     test('should navigate to the homepage with the Home link', async () => {

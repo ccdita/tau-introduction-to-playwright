@@ -17,6 +17,7 @@ I used beforeAll for logging into the website (practicetestautomation.com) so th
 **4. Describe and implement a scenario where you need to use the afterAll. What did you use it for?**
 I used afterAll for closing the browser after running all tests on practicetestautomation.com. The website has no Log Out button, but if there had been one, I would have used afterAll to log out of my account after running the tests.
 
-1. Describe and implement a scenario where you need to use the afterEach. What did you use it for?
+**5. Describe and implement a scenario where you need to use the afterEach. What did you use it for?**
+I used afterEach to log the output of each test in the console.
 
 1. Explore few of the methods of the testInfo. Which one did you find more interesting?
