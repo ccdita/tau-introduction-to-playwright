@@ -10,7 +10,9 @@ Adding visual testing via Applitools to the Playwright Search test (`x-x-search.
 
 Visual testing via Playwright is more selective in that you must specify the elements you want to assert. Conversely, visual testing via Applitools captures any visual differences between the current page state and the baseline depending on the `eyes.check()` options used.
 
-1. Run the [example3.spec.ts](/tests/example3.spec.ts) with the Ultra Fast Grid. How does it compare to the Classic Runner?
+**3. Run the [example3.spec.ts](/tests/example3.spec.ts) with the Ultra Fast Grid. How does it compare to the Classic Runner?**
+
+Ultrafast Grid produces a single batch in the Applitools Test Manager for each test run. Meanwhile, Classic Runner produces a batch for each test run per browser.
 
 1. Explore other check settings. Can you list a few scenarios that each of them is most appropriate for?
 
