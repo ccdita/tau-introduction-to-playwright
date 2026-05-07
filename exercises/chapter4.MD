@@ -6,7 +6,9 @@
 
 Adding visual testing via Applitools to the Playwright Search test (`x-x-search.spec.ts`) increased the test runtime by about 17 seconds.
 
-1. Add visual testing via Playwright to the [example2.spec.ts](/tests/example2.spec.ts) file. What differences have you noticed from Applitools?
+**2. Add visual testing via Playwright to the [example2.spec.ts](/tests/example2.spec.ts) file. What differences have you noticed from Applitools?**
+
+Visual testing via Playwright is more selective in that you must specify the elements you want to assert. Conversely, visual testing via Applitools captures any visual differences between the current page state and the baseline depending on the `eyes.check()` options used.
 
 1. Run the [example3.spec.ts](/tests/example3.spec.ts) with the Ultra Fast Grid. How does it compare to the Classic Runner?
 
