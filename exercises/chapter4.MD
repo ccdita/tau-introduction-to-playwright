@@ -2,7 +2,9 @@
 
 ## Chapter 4 - Exercises
 
-1. Revisit the previous tests you implemented and add visual testing via Applitools to them. How much that increased the test runtime?
+**1. Revisit the previous tests you implemented and add visual testing via Applitools to them. How much that increased the test runtime?**
+
+Adding visual testing via Applitools to the Playwright Search test (`x-x-search.spec.ts`) increased the test runtime by about 17 seconds.
 
 1. Add visual testing via Playwright to the [example2.spec.ts](/tests/example2.spec.ts) file. What differences have you noticed from Applitools?
 
