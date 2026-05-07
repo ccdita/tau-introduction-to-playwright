@@ -14,6 +14,31 @@ Visual testing via Playwright is more selective in that you must specify the ele
 
 Ultrafast Grid produces a single batch in the Applitools Test Manager for each test run. Meanwhile, Classic Runner produces a batch for each test run per browser.
 
-1. Explore other check settings. Can you list a few scenarios that each of them is most appropriate for?
+**4. Explore other check settings. Can you list a few scenarios that each of them is most appropriate for?**
+
+- `region`
+    - Visually checking a specific element, such as a header
+    - Visually checking a specific container or section of the page using locators
+
+- `frames`
+    - Visually check `<iframe>` content embedding a document within the webpage
+
+- `matchLevel`
+    - `Strict`: Visually checking a login page to ensure absolutely nothing has changed
+    - `Layout`: Visually checking that search results are displayed in the correct layout after entering a search query
+    - `IgnoreColors`: Visually checking the structure/layout of the page without regard for color choices in UI
+    - `Dynamic`: Visually check a page while ignoring dynamic content like advertisements or animations
+
+- `ignoreRegions`
+    - Checking for patterns and formatting instead of the actual content itself in dynamic content (e.g., dates and timestamps)
+
+- `layoutRegions`, `strictRegions`, `dynamicRegions`, `contentRegions`, `floatingRegions`
+    - Visually checking a group of regions with a particular characteristic (layout, which regions to strictly test, dynamic regions, content, floating regions)
+
+- `accessibilityRegions`
+    - Visually checking that the main header on a page is of type `LargeText`
+
+- `fully`
+    - Visually checking that an entire page does not change
 
 1. In the Eyes Test Manager (Applitools Dashboard) explore the commands to accept/reject a baseline. What changes have you noticed in the test results?
