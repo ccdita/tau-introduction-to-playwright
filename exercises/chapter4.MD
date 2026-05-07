@@ -41,4 +41,7 @@ Ultrafast Grid produces a single batch in the Applitools Test Manager for each t
 - `fully`
     - Visually checking that an entire page does not change
 
-1. In the Eyes Test Manager (Applitools Dashboard) explore the commands to accept/reject a baseline. What changes have you noticed in the test results?
+**5. In the Eyes Test Manager (Applitools Dashboard) explore the commands to accept/reject a baseline. What changes have you noticed in the test results?**
+
+- When I accept a baseline, Eyes finds all similar tests and automatically accepts the baseline for those tests
+- When I reject a baseline/checkpoint image, Eyes remembers the decision and automatically rejects the checkpoint image on subsequent test runs so that I do not need to review them again
