@@ -55,6 +55,7 @@ test.beforeAll(async() => {
         Runner = new ClassicRunner();
     }
     
+    // Displays on Applitools eyes dashboard
     const runnerName = (USE_ULTRAFAST_GRID) ? 'Ultrafast Grid' : 'Classic runner';
     /**
      * A batch is a collection of checkpoints for each test suite

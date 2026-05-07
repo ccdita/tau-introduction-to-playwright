@@ -12,6 +12,10 @@ import {
   Target
 } from '@applitools/eyes-playwright';
 
+/**
+ * In package.json, even though the flag is set to --project=chromium, because we are using Ultrafast Grid the test
+ * will run against all browsers by default
+ */
 export const USE_ULTRAFAST_GRID: boolean = true;
 // export const USE_ULTRAFAST_GRID: boolean = false;
 
@@ -19,8 +23,8 @@ export let Batch: BatchInfo;
 export let Config: Configuration;
 export let Runner: EyesRunner;
 let eyes: Eyes;
-let URL = 'https://demo.applitools.com';
-// let URL = 'https://demo.applitools.com/index_v2.html';
+// let URL = 'https://demo.applitools.com';
+let URL = 'https://demo.applitools.com/index_v2.html';
 
 test.beforeAll(async() => {
 
