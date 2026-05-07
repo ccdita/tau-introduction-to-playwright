@@ -20,6 +20,7 @@ let topMenuPage: TopMenuPage;
 const pageUrl = /.*intro/;
 
 // Applitools
+// Defines which runner Applitools will use
 // export const USE_ULTRAFAST_GRID: boolean = true;
 export const USE_ULTRAFAST_GRID: boolean = false;
 export let Batch: BatchInfo;
@@ -31,7 +32,23 @@ let eyes: Eyes;
 // beforeAll for Applitools
 test.beforeAll(async() => {
 
+    /**
+     * Determine which runner to use
+     * Ultrafast Grid
+     * - All test execution will be managed by Applitools in the cloud
+     * - Useful for running many browsers and devices
+     * 
+     * ClassicRunner
+     * - Manage everything locally
+     * - You must run every single browser or device in the local machine
+     * - Time-consuming because you must download and install every single browser,
+     * and manage parallelism locally
+     */
     if (USE_ULTRAFAST_GRID) {
+        /**
+         * Define how many tests in parallel to run with testConcurrency
+         * The free version of Applitools lets you run only one test
+         */
         Runner = new VisualGridRunner({ testConcurrency: 5 });
     }
     else {
@@ -39,6 +56,13 @@ test.beforeAll(async() => {
     }
     
     const runnerName = (USE_ULTRAFAST_GRID) ? 'Ultrafast Grid' : 'Classic runner';
+    /**
+     * A batch is a collection of checkpoints for each test suite
+     * - If we are using the VisualGridRunner, we will have one batch for all the configurations since
+     * Applitools manages everything for us
+     * - If we are using the ClassicRunner, each browser or device will be one group of batches, since
+     * we will start and trigger every single test locally
+     */
     Batch = new BatchInfo({name: `Playwright website - ${runnerName}`});
     
     Config = new Configuration();
@@ -46,6 +70,7 @@ test.beforeAll(async() => {
     
     Config.setBatch(Batch);
     if (USE_ULTRAFAST_GRID) {
+        // Add different viewports, screen orientations, browsers, devices
         Config.addBrowser(800, 600, BrowserType.CHROME);
         Config.addBrowser(1600, 1200, BrowserType.FIREFOX);
         Config.addBrowser(1024, 768, BrowserType.SAFARI);
@@ -58,12 +83,15 @@ test.beforeAll(async() => {
 
 test.beforeEach(async ({page}) => {
     //Applitools
+    // Create a new eyes instance for each test
     eyes = new Eyes(Runner, Config);
+    // Starts the test execution in Applitools
     await eyes.open(
-      page,
-      'Playwright',
-      test.info().title,
-      { width: 1024, height: 768 }
+      // Required parameters:
+      page, // Driver
+      'Playwright', // App name
+      test.info().title, // Test name
+      { width: 1024, height: 768 } // View port
     );
     //end of Applitools
 
@@ -72,6 +100,8 @@ test.beforeEach(async ({page}) => {
 });
 
 test.afterEach(async () => {
+    // We must close the eyes instance after each test execution
+    // Ensures session is finished
     await eyes.close();
 });
 
@@ -90,7 +120,12 @@ test.describe('Playwright website', () => {
 
     test('has title', async () => {
         await homePage.assertPageTitle();
-        // https://applitools.com/docs/api-ref/sdk-api/playwright/js-intro/checksettings
+        /**
+         * Applitools performs visual check given the page name and target
+         * - Target.window() only considers the viewport
+         * - .fully() scrolls and takes a screenshot of the whole page
+         * - For more check options: // https://applitools.com/docs/api-ref/sdk-api/playwright/js-intro/checksettings
+         */
         await eyes.check('Home page', Target.window().fully());
     });
     
@@ -99,6 +134,7 @@ test.describe('Playwright website', () => {
         await topMenuPage.assertPageUrl(pageUrl);
         // https://applitools.com/docs/api-ref/sdk-api/playwright/js-intro/checksettings#region-match-levels
         // Layout: Check only the layout and ignore actual text and graphics.
+        // Useful for eCommerce apps where products may change
         await eyes.check('Get Started page', Target.window().fully().layout());
     });
     
